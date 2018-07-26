@@ -40,9 +40,9 @@ switch (pick) {
         break;
     case 'movie':
         if (input) {
-            omdb(input);
+            movies(input);
         } else {
-            omdb('Chronicle');
+            movies('Chronicle');
         }
         break;
     case 'do-it':
@@ -98,7 +98,7 @@ function spoti(song) {
 }
 
 
-function omdb(movieName) {
+function movies(movieName) {
     var queryUrl = "http://www.omdbapi.com/?t=" + movieName + "&y=&plot=short&apikey=trilogy";
     console.log(queryUrl);
     request(queryUrl, function (error, response, body) {
