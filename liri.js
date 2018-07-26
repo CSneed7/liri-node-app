@@ -54,24 +54,6 @@ switch (pick) {
         break;
 }
 
-function tweets() {
-    var username = {
-        screen_name: 'SneedCE'
-    };
-    client.get('statuses/user_timeline', username, function (error, tweets, response) {
-        if (!error) {
-            for (var i = 0; i < tweets.length; i++) {
-                var date = tweets[i].created_at;
-                console.log("@SneedCE: " + tweets[i].text + " " + "Date: " + date.substring(0, 19));
-                log("@SneedCE: " + tweets[i].text + " " + "Date: " + date.substring(0, 19));
-                log("----------------------------------");
-            }
-        } else {
-            console.log('twitter messed up')
-        }
-    })
-}
-
 function spoti(song) {
     spotify.search({
         type: 'track',
@@ -97,6 +79,23 @@ function spoti(song) {
     });
 }
 
+function tweets() {
+    var username = {
+        screen_name: 'SneedCE'
+    };
+    client.get('statuses/user_timeline', username, function (error, tweets, response) {
+        if (!error) {
+            for (var i = 0; i < tweets.length; i++) {
+                var date = tweets[i].created_at;
+                console.log("@SneedCE: " + tweets[i].text + " " + "Date: " + date.substring(0, 19));
+                log("@SneedCE: " + tweets[i].text + " " + "Date: " + date.substring(0, 19));
+                log("----------------------------------");
+            }
+        } else {
+            console.log('twitter messed up')
+        }
+    })
+}
 
 function movies(movieName) {
     var queryUrl = "http://www.omdbapi.com/?t=" + movieName + "&y=&plot=short&apikey=trilogy";
